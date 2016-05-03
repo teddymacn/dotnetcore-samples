@@ -3,7 +3,8 @@
   "version": "1.0.0-*",
   "content": [
     "wwwroot",
-    "Views"
+    "Views",
+    "coreprofiler.json"
   ],
   "compilationOptions": {
     "preserveCompilationContext": true,
@@ -21,9 +22,10 @@
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-*",
+    "CoreProfiler": "1.0.0-*",
     "Microsoft.NETCore.App": {
       "type": "platform",
-      "version": "1.0.0-rc2-*"
+      "version": "1.0.0-rc2-3002543"
     }
   },
   "frameworks": {
@@ -31,7 +33,8 @@
       "imports": [
         "portable-net45+wp80+win8+wpa81+dnxcore50",
         "portable-net45+win8+wp8+wpa81",
-        "portable-net45+win8+wp8"
+        "portable-net45+win8+wp8",
+        "dnxcore50"
       ]
     }
   },

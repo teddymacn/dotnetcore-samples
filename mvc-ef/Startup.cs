@@ -6,6 +6,11 @@ using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using MvcEfSample.Models;
+using System.Data.Common;
+using CoreProfiler.Data;
+using Microsoft.Data.Sqlite;
+using CoreProfiler;
+using CoreProfiler.Web;
 
 namespace MvcEfSample
 {
@@ -16,16 +21,27 @@ namespace MvcEfSample
             services.AddEntityFramework()
                     .AddEntityFrameworkSqlite()
                     .AddDbContext<WebsiteDbContext>(
-                        options => options.UseSqlite("Data Source=./mvcefsample.sqlite"));
+                        options => options.UseSqlite(GetConnection()));
                         
             services.AddMvc();
         }
         
+        private static DbConnection GetConnection()
+        {
+            return new ProfiledDbConnection(new SqliteConnection("Data Source=./mvcefsample.sqlite"), () =>
+            {
+                if (ProfilingSession.Current == null)
+                    return null;
+
+                return new DbProfiler(ProfilingSession.Current.Profiler);
+            });
+        }        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(LogLevel.Debug);
             
             app.UseStaticFiles();
+            app.UseCoreProfiler();
             
             if (env.IsDevelopment())
             {
