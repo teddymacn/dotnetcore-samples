@@ -12,8 +12,8 @@
     "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-*",
-    "CoreProfiler": "1.0.0-*",
-    "CoreProfiler.Web": "1.0.0-*",
+    "CoreProfiler": "1.0.0-beta-20160504-1",
+    "CoreProfiler.Web": "1.0.0-beta-20160504-1",
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.0-rc2-3002608"
