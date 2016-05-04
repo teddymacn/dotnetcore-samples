@@ -1,16 +1,6 @@
 {
   "name": "MvcEfSample",
   "version": "1.0.0-*",
-  "content": [
-    "wwwroot",
-    "Views",
-    "coreprofiler.json"
-  ],
-  "compilationOptions": {
-    "preserveCompilationContext": true,
-    "emitEntryPoint": true,
-    "debugType": "portable"
-  },
   "dependencies": {
     "Microsoft.AspNetCore.Diagnostics": "1.0.0-*",
     "Microsoft.AspNetCore.Mvc": "1.0.0-*",
@@ -23,10 +13,19 @@
     "Microsoft.EntityFrameworkCore": "1.0.0-*",
     "Microsoft.EntityFrameworkCore.Sqlite": "1.0.0-*",
     "CoreProfiler": "1.0.0-*",
+    "CoreProfiler.Web": "1.0.0-*",
     "Microsoft.NETCore.App": {
       "type": "platform",
-      "version": "1.0.0-rc2-3002543"
+      "version": "1.0.0-rc2-3002608"
     }
+  },
+  "buildOptions":{
+    "copyToOutput":{
+      "include": "wwwroot;Views;coreprofiler.json"
+    },
+    "preserveCompilationContext": true,
+    "emitEntryPoint": true,
+    "debugType": "portable"
   },
   "frameworks": {
     "netcoreapp1.0": {
